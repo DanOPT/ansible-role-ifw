@@ -108,6 +108,8 @@ Has always to be a list, even if only one parent will be assigned. First node na
 
 There can be more than one zone specified in group_vars/.
 
+Filename has to be the group name and will be used as the name of the parent zone.
+
 **Example Inventory:**
 ```
     [master]
