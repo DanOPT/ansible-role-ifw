@@ -25,12 +25,12 @@ Role Variables
 
 `ifw_hostname` How do you want to name your host object (default: 1):  
 
-[0] "dpatrick-windo": FQDN (current)  
-[1] "dpatrick-windo": FQDN (lowercase)  
-[2] "DPATRICK-WINDO": FQDN (uppercase)  
-[3] "dpatrick-windo": Hostname (current)  
-[4] "dpatrick-windo": Hostname (lowercase)  
-[5] "DPATRICK-WINDO": Hostname (uppercase)  
+[0] "i2-agent.domain": FQDN (current)  
+[1] "i2-agent.domain": FQDN (lowercase)  
+[2] "I2-AGENT.DOMAIN": FQDN (uppercase)  
+[3] "i2-agent": Hostname (current)  
+[4] "i2-agent": Hostname (lowercase)  
+[5] "I2-AGENT": Hostname (uppercase)  
 [6] Set custom Hostname
 
 `ifw_port` Port Number for communication with the REST API (default: 5665)
@@ -110,7 +110,7 @@ There can be more than one zone specified in group_vars/.
 **Example Inventory:**
 ```
     [master]
-    i2-satellite ansible_host=10.0.0.110 pki_ticket=<pki_ticket>  self_service_key=<self_service_key>
+    i2-agent ansible_host=10.0.0.110 pki_ticket=<pki_ticket> self_service_key=<self_service_key>
 
     [master:vars]
     ansible_user=<remote_user>
