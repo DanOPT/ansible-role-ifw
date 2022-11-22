@@ -1,5 +1,5 @@
-ansible-role-ifw
-================
+Ansible Role for Icinga for Windows
+===================================
 
 A simple role to install and configure Icinga for Windows agents assigned to a unique parent defined in group_vars/<zone-name> and Inventory.
 
