@@ -1,7 +1,7 @@
 Ansible Role for Icinga for Windows
 ===================================
 
-A simple role to install and configure Icinga for Windows agents assigned to an unique parent defined in group_vars/<zone-name> and Inventory.
+A simple role to install and configure Icinga for Windows agents assigned to an unique parent and zone defined in group_vars/<zone-name> and Inventory.
 
 Requirements
 ------------
