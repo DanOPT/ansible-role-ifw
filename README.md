@@ -1,7 +1,7 @@
 Ansible Role for Icinga for Windows
 ===================================
 
-A simple role to install and configure Icinga for Windows agents assigned to a unique parent defined in group_vars/<zone-name> and Inventory.
+A simple role to install and configure Icinga for Windows agents assigned to an unique parent defined in group_vars/<zone-name> and Inventory.
 
 Requirements
 ------------
@@ -47,12 +47,6 @@ Role Variables
 [0] Sign certificate manually on the Icinga CA master
 [1] Sign certificate with a ticket
 [2] Sign certificate with local ca.crt
-
-`ifw_parent_nodes` Parent node names (default: not defined, required and has to be a list, even if only one parent is defined.) E.g.:
-```
-ifw_parent_nodes:
-  - 'dpatrick-i2-master'
-```
 
 `ifw_firewall` Select if your Windows Firewall should be opened for the Icinga port (default: 1)  
 
