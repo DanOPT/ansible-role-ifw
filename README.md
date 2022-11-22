@@ -105,6 +105,7 @@ For this role a group_vars file, an inventory, and a Playbook are required.
 ```
 
 Has always to be a list, even if only one parent will be assigned. First node name in `ifw_parent_nodes` belongs to the first address in `ifw_parent_address`.
+
 There can be more than one zone specified in group_vars/.
 
 **Example Inventory:**
@@ -122,6 +123,8 @@ There can be more than one zone specified in group_vars/.
 ```
 **Every host can only be part of one group** that will define the parent node names and address. The group name will also be used to define the zone name.
 
+There can also be more than one group as a zone specified in the Inventory.
+    
 License
 -------
 
