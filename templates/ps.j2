@@ -1,0 +1,45 @@
+[Net.ServicePointManager]::SecurityProtocol = 'tls12, tls11';
+$ProgressPreference                         = 'SilentlyContinue';
+[string]$ScriptFile                         = 'C:\Users\Public\IcingaForWindows.ps1';
+
+Invoke-WebRequest `
+    -UseBasicParsing `
+    -Uri 'https://packages.icinga.com/IcingaForWindows/IcingaForWindows.ps1' `
+    -OutFile $ScriptFile;
+
+$InstallJSON=@'
+{
+  "IfW-ParentAddress":{"Values":{
+  {%- for node in hostvars[inventory_hostname].ifw_parent_nodes -%}
+  "{{ node }}":["{{ hostvars[inventory_hostname].ifw_parent_address[loop.index0] }}"]
+  {%- if not loop.last -%}
+  ,
+  {%- endif -%}
+  {%- endfor -%}
+  }},
+  "IfW-ParentZone":{"Values":["{{ group_names[0] }}"]},
+  "IfW-CustomHostname":{"Values":["{{ inventory_hostname }}"]},
+  "IfW-Hostname":{"Selection":"{{ ifw_hostname }}"},
+  "IfW-Connection":{"Selection":"{{ ifw_connection }}"},
+  "IfW-InstallApiChecks": { "Selection": "{{ ifw_install_api_checks }}" },
+  "IfW-ParentNodes":{"Values":[
+  {%- for node in hostvars[inventory_hostname].ifw_parent_nodes -%}
+  "{{ node }}"
+  {%- if not loop.last -%}
+  , 
+  {%- endif -%}
+  {%- endfor -%}
+  ]},
+  "IfW-ForceCertificateCreation":{"Selection":"{{ ifw_force_certificate_creation }}"},
+  "IfW-Port": { "Values": ["{{ ifw_port }}"] },
+  "IfW-GlobalZones": { "Selection": "{{ ifw_global_zones}}" },
+  "IfW-AgentVersion": { "Values": [ "{{ ifw_agent_version }}" ] },
+  "IfW-WindowsFirewall": { "Selection":  "{{ ifw_firewall }}" },
+  "IfW-WindowsServiceDirectory": { "Values": [ "{{ ifw_windows_service_directory }}" ] },
+  "IfW-AgentDirectory": { "Values": [ "{{ ifw_agent_directory }}"] }
+}
+'@
+
+& $ScriptFile `
+    -ModuleDirectory 'C:\Program Files\WindowsPowerShell\Modules\' `
+    -InstallCommand $InstallJSON;

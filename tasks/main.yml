@@ -1,0 +1,12 @@
+---
+# tasks file for ansible-role-ifw
+
+- name: Create icinga-install.ps1 using Jinja2
+  template:
+    src: ps.j2
+    dest: 'C:\Windows\Temp\icinga-install.ps1'
+  register: result
+
+- name: Execute icinga-install.ps1
+  win_command: powershell.exe -ExecutionPolicy ByPass -File C:\Windows\Temp\icinga-install.ps1
+  when: result.changed | bool

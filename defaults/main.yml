@@ -1,0 +1,24 @@
+---
+
+ifw_icinga_repository: false
+ifw_stable_repository: false
+ifw_global_zones: 0
+ifw_force_certificate_creation: 0
+ifw_hostname: 1
+ifw_port: 5665
+ifw_connection: 0
+ifw_certificate_creation: 0
+ifw_firewall: 1
+ifw_agent_version: 'release'
+ifw_intall_agent: 0
+ifw_agent_directory: 'C:\\Program Files\\ICINGA2'
+ifw_install_plugins: 0
+ifw_install_api_checks: 1
+ifw_install_service: 0
+ifw_windows_service_directory: 'C:\\Program Files\\icinga-framework-service'
+ifw_director_selfservice_key: false
+ifw_director_url: false
+ifw_global_zones: 0
+
+# Missing:
+# [13] AgentUser                             => "NT Authority\NetworkService"
