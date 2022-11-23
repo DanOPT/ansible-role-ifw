@@ -2,7 +2,6 @@
 
 ifw_icinga_repository: false
 ifw_stable_repository: false
-ifw_global_zones: 0
 ifw_force_certificate_creation: 0
 ifw_hostname: 1
 ifw_port: 5665
