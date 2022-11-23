@@ -30,6 +30,9 @@ $InstallJSON=@'
   {%- endif -%}
   {%- endfor -%}
   ]},
+  {% if hostvars[inventory_hostname].pki_ticket -%}
+  "IfW-Ticket":{"Values":["{{ hostvars[inventory_hostname].pki_ticket }}"]},
+  {% endif %}
   "IfW-ForceCertificateCreation":{"Selection":"{{ ifw_force_certificate_creation }}"},
   "IfW-Port": { "Values": ["{{ ifw_port }}"] },
   "IfW-GlobalZones": { "Selection": "{{ ifw_global_zones}}" },
