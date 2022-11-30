@@ -113,15 +113,7 @@ Filename has to be the group name and will be used as the name of the parent zon
 **Example Inventory:**
 ```
     [master]
-    i2-agent ansible_host=10.0.0.110 pki_ticket=<pki_ticket> self_service_key=<self_service_key>
-
-    [master:vars]
-    ansible_user=<remote_user>
-    ansible_password=<password>
-    ansible_port=5985
-    ansible_connection=winrm
-    ansible_winrm_transport=basic
-    ansible_winrm_server_cert_validation=ignore
+    i2-agent pki_ticket=<pki_ticket>
 ```
 **Every host can only be part of one group** that will define the parent node names and address. The group name will also be used to define the zone name.
 
