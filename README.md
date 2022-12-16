@@ -3,8 +3,8 @@ Ansible Role for Icinga for Windows
 
 A simple role to install and configure Icinga for Windows agents assigned to an unique parent and zone defined in group_vars/<zone-name> and Inventory.
 
-Requirements
-------------
+Prerequisites
+-------------
 
 Please check https://docs.ansible.com/ansible/latest/user_guide/windows.html
 
@@ -57,6 +57,9 @@ Role Variables
 
 `ifw_intall_agent` Select if the Icinga Agent should be installed (default: 0)
 
+[0] Install agent
+[1] Do not install agent  
+
 `ifw_agent_directory`  Path where to install the Icinga Agent into (default: 'C:\\Program Files\\ICINGA2')
 
 `ifw_install_plugins` Specifiy if plugins should be installed (default: 0):  
@@ -64,7 +67,7 @@ Role Variables
 [0] Install plugins  
 [1] Do not install plugins  
 
-`ifw_install_service` Please select of you want to install the Icinga for Windows service:  
+`ifw_install_service` Install the Icinga for Windows service (default: 0):  
 
 [0] Install Icinga for Windows Service  
 [1] Do not install Icinga for Windows service  
@@ -83,7 +86,7 @@ Dependencies
 No depencies of other roles.
 
 Example Playbook, Inventory and group_vars file
-------------------------------
+-----------------------------------------------
 
 For this role a group_vars file, an inventory, and a Playbook are required.
 
@@ -117,7 +120,7 @@ Filename has to be the group name and will be used as the name of the parent zon
 ```
 **Every host can only be part of one group** that will define the parent node names and address. The group name will also be used to define the zone name.
 
-There can also be more than one group as a zone specified in the Inventory.
+There can be more than one group as a zone specified in the Inventory.
     
 License
 -------
