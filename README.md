@@ -11,7 +11,7 @@ Please check https://docs.ansible.com/ansible/latest/user_guide/windows.html
 Role Variables
 --------------
 
-`ifw_global_zones` Which default Icinga global zones do you want to add?  
+`ifw_global_zones` Which default Icinga global zones do you want to add (default: 0):  
 
 [0] Add "director-global" and "global-templates" zones  
 [1] Add "director-global" zone  
